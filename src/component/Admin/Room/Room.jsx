@@ -3,7 +3,10 @@ import { Button, Table, Input } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAllRentalRoomAction } from "redux/actions/RetalRoomAction";
+import {
+  deleteRentalRoomAction,
+  getAllRentalRoomAction,
+} from "redux/actions/RetalRoomAction";
 import { Fragment } from "react";
 import { DeleteOutlined, EditOutlined, EyeOutlined } from "@ant-design/icons";
 const { Search } = Input;
@@ -100,14 +103,14 @@ function Room() {
             <span style={{ cursor: "pointer" }} key="9" className="text-2xl">
               <DeleteOutlined
                 style={{ color: "red" }}
-                onClick={() => {
+                onClick={async () => {
                   if (
                     window.confirm(
                       "Are you sure you want to delete" + room.id + "?"
                     )
                   ) {
-                    // dispatch(deleteAdminUserAction(user.id));
-                    // dispatch(getAllAdminUserAction());
+                    dispatch(deleteRentalRoomAction(room.id));
+                    dispatch(getAllRentalRoomAction());
                   }
                 }}
               />{" "}

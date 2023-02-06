@@ -94,7 +94,7 @@ function UpdateLocation() {
       id: id,
       tenViTri: values.tenViTri,
       tinhThanh: values.tinhThanh,
-      quocGia: values.tenViTri,
+      quocGia: values.quocGia,
       hinhAnh: imageUrl,
     };
     try {

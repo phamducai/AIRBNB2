@@ -76,10 +76,13 @@ export const getRentalRoomByIDAction = (roomid) => {
   return async (dispatch) => {
     try {
       const result = await room.getRentalRoombyID(roomid);
-      dispatch({
-        type: GET_ALL_RENTAL_ROOM_BY_ID,
-        payload: result.data.content,
-      });
+      console.log(result);
+
+      if (result.data.statusCode === 200)
+        dispatch({
+          type: GET_ALL_RENTAL_ROOM_BY_ID,
+          payload: result.data.content,
+        });
     } catch (errors) {
       console.log("errors", errors);
     }
